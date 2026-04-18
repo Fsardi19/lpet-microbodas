@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --pink: #E8838C;
+  --navy: #1E1E3F;
+  --gold: #C9A227;
+  --beige: #D4C5B0;
+  --green: #2D5A3D;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: #FAF7F2;
+  color: #1E1E3F;
+  font-family: var(--font-sans), Inter, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--pink);
+  color: #fff;
+}
+
+/* Glassmorphism util (premium CTAs) */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.glass-dark {
+  background: rgba(30, 30, 63, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Shine effect for primary CTAs */
+.shine-cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.shine-cta::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  animation: shineSweep 3.5s infinite;
+}
+@keyframes shineSweep {
+  0% { left: -150%; }
+  60% { left: 150%; }
+  100% { left: 150%; }
+}
+
+/* Subtle B/W filter for romantic hero variant (referenciado landing actual) */
+.bw-wash {
+  filter: grayscale(35%) contrast(1.03);
+}
+
+/* Focus ring for accessibility */
+:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Section divider */
+.section-divider {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(232, 131, 140, 0.25) 50%,
+    transparent 100%
+  );
+  height: 1px;
+}
+
+/* Range slider (pax) */
+input[type='range'].pax-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: #E9E0D0;
+  border-radius: 9999px;
+  outline: none;
+}
+input[type='range'].pax-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: var(--pink);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(232, 131, 140, 0.45);
+  cursor: pointer;
+}
+input[type='range'].pax-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: var(--pink);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(232, 131, 140, 0.45);
+  cursor: pointer;
+}
